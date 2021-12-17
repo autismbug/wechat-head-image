@@ -50,7 +50,7 @@ https://github.com/netyouli/whc_wechat_image_edit
 
 ### 1. 域名配置
 
-![域名配置](D:\code\littleCode\wechat-head-image\screenshot\域名配置.png)
+![域名配置](D:\code\littleCode\wechat-head-image\screenshot\yumingpeizhi.png)
 
 小程序发布上线，需要在小程序后台，添加服务器域名配置。
 https://mp.weixin.qq.com （这个也可以不配，微信服务的根域名）
