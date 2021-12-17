@@ -34,6 +34,19 @@
   /* position: fixed; */
 }
 
+.view-userinfo-tips {
+  display: flex; 
+  align-items: center;    /**子view垂直居中*/
+  vertical-align: center; /**垂直居中*/
+  justify-content: center; /**内容居中*/
+  flex-direction:row;
+}
+
+.userinfo-tips {
+  font-size: 12px;
+  color: gray;
+}
+
 .userinfo-festivalview {
   position: fixed;
   z-index: 999;
@@ -114,10 +127,10 @@
 }
 
 .userinfo-buttonview {
-  width: 320px;
+  width: 330px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   margin-top: 7px;
   height: 40px;

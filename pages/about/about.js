@@ -16,7 +16,7 @@ Page({
       '意见反馈添加微信：autismbug',
       '个人网站：https://www.autismbug.cn',
       'github：https://github.com/autismbug',
-      '小程序版本：v1.0.5',
+      '小程序版本：v1.0.6',
     ],
   },
 

@@ -13,7 +13,7 @@ Page({
     didShow: false,
     isTouchScale: false,
     makePosterImage: false,
-    festivalSrc: '',
+    festivalSrc: '../images/shengdan/1.png',
     oldx:0,
     oldy: 0,
     startx: 0,
@@ -23,8 +23,9 @@ Page({
     loading: false,
     callback: null,
     logoPath: null,
+    tipsHidden:false,
     currentFestival: '圣诞',
-    userInfo: {},
+    userInfo: {highAvatarUrl:'../images/default-avatar.png'},
     olduserInfo: {},
     hasScale: false,
     hasRotate: false,
@@ -42,11 +43,6 @@ Page({
     festivalImageIndex: 0,
     festivalNames: [
       '圣诞',
-      '春节',
-      '元宵',
-      '国庆',
-      '1024',
-      '女神节'
     ],
     icons: {
       '圣诞': [],
@@ -132,10 +128,10 @@ Page({
     if (!didShow && userInfo.highAvatarUrl != void 0) {
       setTimeout(() => {
         this.data.didShow = true;
-        wx.showToast({
-          title: '可以切换不同节日',
-          icon: 'none',
-        });
+        // wx.showToast({
+        //   title: '可以切换不同节日',
+        //   icon: 'none',
+        // });
       }, 1000);
     }
   },
@@ -188,45 +184,6 @@ Page({
     this.setData({
       icons,
     });
-    //  // 查看是否授权
-    //  wx.getSetting({
-    //   success (res){
-    //     if (res.authSetting['scope.userInfo']) {
-    //       console.log('1')
-    //       // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-    //       wx.getUserInfo({
-    //         success: function(res) {
-    //           console.log('2')
-    //           console.log(res.userInfo)
-    //         }
-    //       })
-    //     }else{
-    //       console.log('3')
-    //     }
-    //   }
-    // });
-    // if (app.globalData.userInfo) {
-    //   this._saveUserInfo(app.globalData.userInfo);
-    //   console.log('111');
-    // } else if (this.data.canIUse){
-    //   console.log('222');
-    //   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-    //   // 所以此处加入 callback 以防止这种情况
-    //   app.userInfoReadyCallback = res => {
-    //     this._saveUserInfo(res.userInfo);
-    //     console.log('333');
-    //   }
-    // } else {
-    //   console.log('444');
-    //   // 在没有 open-type=getUserInfo 版本的兼容处理
-    //   wx.getUserInfo({
-    //     success: res => {
-    //       console.log('555');
-    //       app.globalData.userInfo = res.userInfo
-    //       this._saveUserInfo(res.userInfo);
-    //     }
-    //   })
-    // }
   },
 
   getUserProfile: function(e) {
@@ -235,25 +192,11 @@ Page({
       success: (res) => {
         app.globalData.userInfo = res.userInfo;
         this._saveUserInfo(res.userInfo);
-        // this.setData({
-        //   userInfo: res.userInfo,
-        //   hasUserInfo: true
-        // })
+        this.setData({
+          tipsHidden : true
+        });
       }
     })
-    // console.log(e.detail.userInfo);
-    // const {
-    //   userInfo = null
-    // } = e.detail;
-    // if (userInfo != null) {
-    //   app.globalData.userInfo = userInfo;
-    //   this._saveUserInfo(userInfo);
-    // }else {
-    //   wx.showToast({
-    //     title: e.detail.errMsg,
-    //     icon: 'none'
-    //   });
-    // }
   },
 
   onChangePickerFestival: function(e) {
@@ -314,6 +257,7 @@ Page({
               this.setData({
                 logoPath: img,
                 userInfo,
+                tipsHidden:true,
               });
             }else {
               wx.showToast({
