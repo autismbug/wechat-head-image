@@ -354,6 +354,7 @@ Page({
         title: '生成中...',
       });
       if (this.data.logoPath == null) {
+        console.log('下载地址：' + this.data.userInfo.highAvatarUrl)
         wx.downloadFile({
           url: this.data.userInfo.highAvatarUrl,
           success: (res) => {
@@ -362,6 +363,7 @@ Page({
           },
           fail: (res) => {
             this.data.loading = false;
+            console.log(res.errMsg)
             wx.showToast({
               title: '获取微信图像失败',
               icon: 'none'

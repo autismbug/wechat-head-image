@@ -42,7 +42,7 @@
         "minifyWXML": true
     },
     "compileType": "miniprogram",
-    "libVersion": "2.9.4",
+    "libVersion": "2.21.1",
     "appid": "wxa1bd1abf528d57b4",
     "projectname": "wechat-head-image",
     "debugOptions": {
