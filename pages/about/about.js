@@ -14,9 +14,7 @@ Page({
     titles: [
       '小程序作者：bug超会玩',
       '意见反馈添加微信：autismbug',
-      '个人网站：https://www.autismbug.cn',
-      'github：https://github.com/autismbug',
-      '小程序版本：v1.0.6',
+      '小程序版本：v1.0.7',
     ],
   },
 

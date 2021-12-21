@@ -5,6 +5,7 @@
     <view bindtap="clickItem" class="scrollview-item" wx:for="{{titles}}" data-index="{{index}}" wx:key="key">
       {{item}}
       </view>
+      <ad unit-id="adunit-a935df3639e5db86"></ad>
       <button class="button-contact" style="width: 80%;" open-type="contact" bindcontact="clickContactWe">联系我们</button>
       <button class="button-share" style="width: 80%;" open-type="share">分享给好友</button>
   </scroll-view>

@@ -11,10 +11,10 @@
       <image class="userinfo-festivalimage" mode="aspectFit" src="{{festivalSrc}}" />
       <image class="userinfo-festivalrotate" mode="aspectFit" src="../images/icon_rotate.png" style="transform:rotate({{-rotate}}deg) scale({{1.0 / festivalScale}});" catchtouchstart="festivalImageRaoteTouchStart" catchtouchmove="festivalImageRaoteTouchMove" catchtouchend="festivalImageRaoteTouchEnd" />
     </view>
-    <view hidden="{{tipsHidden}}" class="view-userinfo-tips">
+  </view>
+  <view hidden="{{tipsHidden}}" class="view-userinfo-tips">
       <text class="userinfo-tips">tips:点击「获取微信头像」按钮获取微信头像。\r\n 或点击上方头像，从相册选择图片。</text>
     </view>
-  </view>
   <view class="userinfo-buttonview">
     <picker hidden="true" bindchange="onChangePickerFestival" mode="selector" value="{{festivalIndex}}" range="{{festivalNames}}">
       <view hidden="true">

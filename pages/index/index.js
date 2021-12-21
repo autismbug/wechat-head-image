@@ -10,6 +10,7 @@ import ImageSynthesis from '../../utils/image-synthesis.js';
 import Notification from '../../utils/react-whc-notification.js';
 Page({
   data: {
+    interstitialAd:null,
     didShow: false,
     isTouchScale: false,
     makePosterImage: false,
@@ -53,7 +54,6 @@ Page({
       '女神节': [],
     },
   },
-
   _reset: function(e) {
     const {
       olduserInfo
@@ -150,7 +150,7 @@ Page({
       let name = '';
       switch(i) {
         case 0: // 圣诞
-          len = 19;
+          len = 18;
           name = 'shengdan';
           break;
         case 1: // 春节
@@ -184,6 +184,18 @@ Page({
     this.setData({
       icons,
     });
+    if (wx.createInterstitialAd) {
+      this.data.interstitialAd = wx.createInterstitialAd({
+        adUnitId: 'adunit-64d7ad22f5f80e0f'
+      })
+      this.data.interstitialAd.onLoad(() => { console.log('success ad')})
+      this.data.interstitialAd.onError((err) => {console.log('ad error:'+err.errMsg)})
+      this.data.interstitialAd.onClose(() => 
+      {
+        console.log('success close');
+        this.clickMakeNewImageAfterAd()
+    })
+    }
   },
 
   getUserProfile: function(e) {
@@ -318,6 +330,7 @@ Page({
     this.clickMakeNewImage(e);
   },
 
+
   clickFestivalImage: function(e) {
     if (this.data.loading) {
       return;
@@ -338,7 +351,7 @@ Page({
     });
   },
 
-  clickMakeNewImage: function(e) {
+  clickMakeNewImageAfterAd:function(e){
     if (this.data.loading) {
       return;
     }
@@ -374,6 +387,14 @@ Page({
         this._saveImage();
       }
     });
+  },
+
+  clickMakeNewImage: function(e) {
+    if (this.data.interstitialAd) {
+      this.data.interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
   },
 
   _saveImage: function() {
